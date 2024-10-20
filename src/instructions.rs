@@ -7,11 +7,13 @@ pub enum ReviewInstruction {
         title: String,
         rating: u8,
         description: String,
+        location: String,
     },
     UpdateReview {
         title: String,
         rating: u8,
         description: String,
+        location: String,
     },
 }
 
@@ -20,6 +22,7 @@ struct ReviewPayload {
     title: String,
     rating: u8,
     description: String,
+    location: String,
 }
 
 impl ReviewInstruction {
@@ -33,11 +36,14 @@ impl ReviewInstruction {
                 title: payload.title,
                 rating: payload.rating,
                 description: payload.description,
+                location: payload.location,
+
             },
             1 => Self::UpdateReview {
                 title: payload.title,
                 rating: payload.rating,
                 description: payload.description,
+                location: payload.location,
             },
             _ => return Err(ProgramError::InvalidInstructionData),
         })

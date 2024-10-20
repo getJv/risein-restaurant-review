@@ -8,7 +8,8 @@ pub struct AccountState{
     pub is_initialized: bool,
     pub rating: u8,
     pub description: String,
-    pub title: String
+    pub title: String,
+    pub location: String
 
 }
 
